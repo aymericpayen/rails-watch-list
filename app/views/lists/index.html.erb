@@ -1,18 +1,41 @@
-<h1>Save any kind of movies</h1>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/800/400/?blur);">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+  </div>
+</div>
+
+
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Lists</h3>
-    <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
+    <div class="d-flex justify-content-start">
+    <h3 class="mb-0">My Lists <%= link_to "+", new_list_path, class: "text-decoration-none" %></h3>
+
+    </div>
+
   </div>
   <div class="row">
     <% @lists.each do |list| %>
       <div class="co-12 col-sm-6 col-md-4">
-        <%= link_to list_path(list), class: "text-decoration-none" do %>
+        <%= link_to list_path(list), class: "btn btn-outline-primary" do %>
           <div class="card-category">
             <%= list.name %>
           </div>
         <% end %>
       </div>
     <% end %>
+  </div>
+</div>
+
+<div class="footer container">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>

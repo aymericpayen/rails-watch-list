@@ -1,9 +1,29 @@
-<h1>My list <%= @list.name %></h1>
+<div class="container text-align-center">
+  <h1>My list <%= @list.name %></h1>
 
-<% @list.movies.each do |movie| %>
-   <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <strong><%= movie.title %> • <%= movie.rating %>
-<% end %>
+  <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <div class="card-product">
+        <img src=<%=movie.poster_url%> />
+        <div class="card-product-infos">
+          <div class="d-flex justify-content-between">
+            <h2><%=movie.title%> </h2>
+            <div class= "d-flex">
+              <h2><%=movie.rating%></h2>
+              <i class="fas fa-star"></i>
+            </div>
 
-<%= link_to 'My lists', lists_path %> |
-<%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
+          </div>
+          <p><%= movie.overview %></p>
+
+        </div>
+      </div>
+
+  <% end %>
+
+
+
+
+  <%= link_to 'My lists', lists_path %> |
+  <%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
+</div>
